@@ -11,6 +11,8 @@ import { MaterialModule } from './material.module';
 import { ArtistlistComponent } from '../Components/artistlist/artistlist.component';
 import { ArtisttableComponent } from '../Components/artisttable/artisttable.component';
 import { ArtistsearchComponent } from 'src/Components/artistsearch/artistsearch.component';
+import { ToptracksComponent } from '../Components/toptracks/toptracks.component';
+import { CardsComponent } from '../Components/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ArtistsearchComponent } from 'src/Components/artistsearch/artistsearch.
     PageComponent,
     ArtistlistComponent,
     ArtisttableComponent,
-    ArtistsearchComponent
+    ArtistsearchComponent,
+    ToptracksComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@
           
           <input type="text" 
                  matInput
-                 formControlName="stateGroup"
+                 formControlName="country"
                  required
                  [matAutocomplete]="autoGroup">
             <mat-autocomplete #autoGroup="matAutocomplete">
@@ -17,7 +17,9 @@
             </mat-optgroup>
           </mat-autocomplete>
         </mat-form-field>
-       
+        <button mat-fab color="warn" aria-label="Search" id="mycountry" (click)="search()">
+          <mat-icon>search</mat-icon>
+        </button>
       </div>
       
     </form>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output,EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
@@ -21,10 +21,11 @@ export const _filter = (opt: string[], value: string): string[] => {
 })
 export class ArtistsearchComponent implements OnInit {
 
-  
+  @Output()
+  searchClicked: EventEmitter<any>=new EventEmitter();
 
   stateForm: FormGroup = this._formBuilder.group({
-    stateGroup: '',
+    country: '',
   });
 
   stateGroups: StateGroup[] ;
@@ -38,11 +39,12 @@ export class ArtistsearchComponent implements OnInit {
       console.log(data);
       this.stateGroups = data
     });
-    this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges
+    this.stateGroupOptions = this.stateForm.get('country')!.valueChanges
       .pipe(
         startWith(''),
         map(value => this._filterGroup(value))
       );
+      this.addEnterKey();
   }
 
   private _filterGroup(value: string): StateGroup[] {
@@ -53,6 +55,19 @@ export class ArtistsearchComponent implements OnInit {
     }
 
     return this.stateGroups;
+  }
+  search(){
+   this.searchClicked.emit(this.stateForm.get('country').value);
+ 
+  }
+  addEnterKey(){
+    var input = document.getElementById("mycountry");
+    input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+     event.preventDefault();
+     document.getElementById("mycountry").click();
+  }
+});
   }
 
 }
