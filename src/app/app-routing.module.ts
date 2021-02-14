@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageComponent } from '../Components/page/page.component';
-import { ArtistlistComponent } from './artistlist/artistlist.component';
+import { ArtistlistComponent } from '../Components/artistlist/artistlist.component';
 
 const routes: Routes = [
 { path : '' , redirectTo: 'Home' , pathMatch: 'full'}, 

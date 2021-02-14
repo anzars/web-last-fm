@@ -8,13 +8,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { PageComponent } from '../Components/page/page.component';
 import { MaterialModule } from './material.module';
-import { ArtistlistComponent } from './artistlist/artistlist.component';
+import { ArtistlistComponent } from '../Components/artistlist/artistlist.component';
+import { ArtisttableComponent } from '../Components/artisttable/artisttable.component';
+import { ArtistsearchComponent } from 'src/Components/artistsearch/artistsearch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageComponent,
-    ArtistlistComponent
+    ArtistlistComponent,
+    ArtisttableComponent,
+    ArtistsearchComponent
   ],
   imports: [
     BrowserModule,
