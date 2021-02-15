@@ -8,7 +8,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 
 
 
@@ -38,6 +38,9 @@ import {MatDialogModule} from '@angular/material/dialog';
        MatCardModule,
        MatDialogModule
        
-    ] 
+    ] ,
+    providers:[
+        {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true,disableClose: true,width:500  }},
+    ]
 })
 export class MaterialModule{}

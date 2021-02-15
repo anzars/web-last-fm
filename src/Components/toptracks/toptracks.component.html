@@ -1,6 +1,10 @@
-
+<div>
+<button mat-button mat-dialog-close>
+    <mat-icon>close</mat-icon>
+</button>
 <div mat-dialog-content class ="trackcontainer" >
-    <h1>Top tracks</h1>
+       <h1>Top tracks</h1>
 <app-cards *ngFor="let track of  data.tracks" [data]="track" [country]="data.country" [artist]="data.artist"></app-cards>
-<button mat-button mat-dialog-close>Cancel</button>
+<button mat-raised-button  color ="warn" mat-dialog-close>Close</button>
+</div>
 </div>

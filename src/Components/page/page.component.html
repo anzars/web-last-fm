@@ -1,15 +1,15 @@
-<div class="h-100  d-flex flex-column">
+<div id="idcontainer" class="h-100  d-flex flex-column">
   <header class= "p-2 h-20">
-    <mat-toolbar color="primary">
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-toolbar id="idtoolbar" color="primary">
+        <button id="idmenubutton" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
           <mat-icon>menu</mat-icon>
         </button>
-        <span>Last FM.</span>
+        <span id="idspan">Last FM.</span>
         <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <button id="idfavouritebutton" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
           <mat-icon>favorite</mat-icon>
         </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <button  id="idsharebutton" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
           <mat-icon>share</mat-icon>
         </button>
       </mat-toolbar>
@@ -17,6 +17,6 @@
 <div class="w-100 ">
   <router-outlet></router-outlet>
 </div>
-<footer class="mt-auto p-2">Copyright info</footer>
+<footer id="idfooter" class="mt-auto p-2">@Copyright info </footer>
 
 </div>

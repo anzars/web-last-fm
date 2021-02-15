@@ -16,7 +16,7 @@
       <!-- Thumbnails Column -->
       <ng-container matColumnDef="thumbnails" >
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="fill bg-info text-white"> Thumbnails </th>
-        <td mat-cell *matCellDef="let row" (click)="onClickThumbnails()"><img src={{row.thumbnails}} ></td>
+        <td mat-cell *matCellDef="let row" (click)="onClickThumbnails(row.name)"><img src={{row.thumbnails}} ></td>
       </ng-container>
   
   

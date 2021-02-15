@@ -17,28 +17,28 @@ import { ToptracksComponent } from '../toptracks/toptracks.component';
   styleUrls: ['./artisttable.component.scss']
 })
 export class ArtisttableComponent implements OnInit {
-  
+  _country : string;
   constructor(private _controlService: ControlServiceService,private dialog:MatDialog) { 
   
    
   }
 
   ngOnInit(): void {
-   this.populatetable('India');
+  
    this._controlService.searchSubject.subscribe(country=>{
-     console.log('count='+country);
-     this.populatetable(country);
+     this._country = country;
+     this.populatetable();
    })
 
   }
-  onClickThumbnails(){
-    console.log('hi');
-    this._controlService.getTopTracks('Arjit').subscribe(data =>{
+  onClickThumbnails(name:string){
+    console.log(name);
+    this._controlService.getTopTracks(name).subscribe(data =>{
       console.log(data);
       let newtracks:any={};
       newtracks.tracks=data;
-      newtracks.artist='Arjit';
-      newtracks.country='India';
+      newtracks.artist=name;
+      newtracks.country= this._country;
       const dialogRef = this.dialog.open(ToptracksComponent ,{data:newtracks});
 
     dialogRef.afterClosed().subscribe(result => {
@@ -46,8 +46,8 @@ export class ArtisttableComponent implements OnInit {
     });
     });
   }
-  populatetable(country){
-    this._controlService.getArtists(country).subscribe(data=>{
+  populatetable(){
+    this._controlService.getArtists(this._country).subscribe(data=>{
       console.log(data);
     this.dataSource = new MatTableDataSource(data);
     this.dataSource.paginator = this.paginator;

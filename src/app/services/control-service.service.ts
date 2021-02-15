@@ -14,7 +14,7 @@ export class ControlServiceService {
 
   getCountries(){
    
-   return  this._apiService.getData('http://localhost:3462/api/getCountries').pipe(
+   return  this._apiService.getData('/api/getCountries').pipe(
       map((data: any)=>{ 
        return this.getsortedCountries(data);
        //
@@ -25,7 +25,7 @@ export class ControlServiceService {
   }
   getArtists(country:string){
     let artists:Array<artist>=[];
-    return  this._apiService.getData('http://localhost:3462/api/Artists?country='+country).pipe(
+    return  this._apiService.getData('/api/Artists?country='+country).pipe(
        map((data: any)=>{ 
         data.artist.forEach((value) =>{
           artists.push({name: value.name, thumbnails: value.image[0]['#text']});
@@ -38,7 +38,7 @@ export class ControlServiceService {
    }
    getTopTracks(artist:string){
     let toptracks:Array<string>=[];
-    return  this._apiService.getData('http://localhost:3462/api/TopTracks?artist='+artist).pipe(
+    return  this._apiService.getData('/api/TopTracks?artist='+artist).pipe(
        map((data: any)=>{ 
         data.result.forEach((value) =>{
           toptracks.push(value.name);
