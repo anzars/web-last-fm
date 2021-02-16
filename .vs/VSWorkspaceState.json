@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\Components",
+    "\\src\\Components\\artistlist",
+    "\\src\\Components\\artistsearch",
+    "\\src\\Components\\artisttable",
+    "\\src\\Components\\cards",
+    "\\src\\Components\\page"
+  ],
+  "SelectedNode": "\\src\\Components\\page\\page.component.spec.ts",
+  "PreviewInSolutionExplorer": false
+}
