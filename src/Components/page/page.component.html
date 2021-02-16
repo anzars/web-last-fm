@@ -1,0 +1,23 @@
+<div id="idcontainer" class="h-100  d-flex flex-column">
+  <header class="p-2 h-20">
+    <mat-toolbar id="idtoolbar" color="primary">
+      <button id="idmenubutton" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span id="idspan">Last FM.</span>
+      <span class="example-spacer"></span>
+      <img src="assets/lastfmlogo.png " class="h-75">
+      <button id="idfavouritebutton" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button id="idsharebutton" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+  </header>
+  <div class="w-100 ">
+    <router-outlet></router-outlet>
+  </div>
+  <footer id="idfooter" class="mt-auto p-2">@Copyright info </footer>
+
+</div>
