@@ -18,6 +18,7 @@ import { ToptracksComponent } from '../toptracks/toptracks.component';
 })
 export class ArtisttableComponent implements OnInit {
   _country : string;
+  show:boolean = false;
   constructor(private _controlService: ControlServiceService,private dialog:MatDialog) { 
   
    
@@ -33,7 +34,8 @@ export class ArtisttableComponent implements OnInit {
   }
   onClickThumbnails(name:string){
     console.log(name);
-    this._controlService.getTopTracks(name).subscribe(data =>{
+   let tracks= this._controlService.getTopTracks(name);
+   tracks.subscribe(data =>{
       console.log(data);
       let newtracks:any={};
       newtracks.tracks=data;
@@ -47,8 +49,12 @@ export class ArtisttableComponent implements OnInit {
     });
   }
   populatetable(){
+    this.show =true;
     this._controlService.getArtists(this._country).subscribe(data=>{
       console.log(data);
+      setTimeout(()=>{
+        this.show=false;
+      },2000);
     this.dataSource = new MatTableDataSource(data);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;

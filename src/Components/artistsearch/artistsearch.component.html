@@ -1,29 +1,29 @@
-<div class="d-flex  w-100 justify-content-center "> 
-    <form [formGroup]="stateForm" class="w-100  "  >
-      <div class="d-flex justify-content-center ">
-        <mat-form-field  >
-          <mat-label>Search by Country</mat-label>
-          
-          <input type="text" 
-                 matInput
-                 formControlName="country"
-                 required
-                 [matAutocomplete]="autoGroup">
-            <mat-autocomplete #autoGroup="matAutocomplete">
-              <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
-                <mat-option *ngFor="let nam of group.name" [value]="nam">
-                  {{nam}}
-                </mat-option>
-            </mat-optgroup>
-          </mat-autocomplete>
-        </mat-form-field>
-        <button mat-fab color="warn" aria-label="Search" id="mycountry" (click)="search()">
-          <mat-icon>search</mat-icon>
-        </button>
-      </div>
-      
-    </form>
-  </div>
-    
-    
-  
+<div class="d-flex  w-100 justify-content-center ">
+  <form [formGroup]="stateForm" class="w-100  ">
+    <div class="d-flex justify-content-center ">
+      <mat-form-field>
+        <mat-label id="idsearchlabel">Search by Country</mat-label>
+
+        <input type="text"
+               id="idsearchinput"
+               matInput
+               formControlName="country"
+               required
+               [matAutocomplete]="autoGroup">
+        <mat-autocomplete #autoGroup="matAutocomplete">
+          <mat-optgroup id="#idoptgroup" *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+            <mat-option *ngFor="let nam of group.name" [value]="nam">
+              {{nam}}
+            </mat-option>
+          </mat-optgroup>
+        </mat-autocomplete>
+      </mat-form-field>
+      <button mat-fab color="warn" aria-label="Search" id="mycountry" (click)="search()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+
+  </form>
+</div>
+
+

@@ -1,7 +1,7 @@
-import {Component, OnInit, Output,EventEmitter} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {startWith, map} from 'rxjs/operators';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { startWith, map } from 'rxjs/operators';
 import { ControlServiceService } from 'src/app/services/control-service.service';
 
 export interface StateGroup {
@@ -22,20 +22,20 @@ export const _filter = (opt: string[], value: string): string[] => {
 export class ArtistsearchComponent implements OnInit {
 
   @Output()
-  searchClicked: EventEmitter<any>=new EventEmitter();
+  searchClicked: EventEmitter<any> = new EventEmitter();
 
   stateForm: FormGroup = this._formBuilder.group({
     country: '',
   });
 
-  stateGroups: StateGroup[] ;
+  stateGroups: StateGroup[];
 
   stateGroupOptions: Observable<StateGroup[]>;
 
-  constructor(private _formBuilder: FormBuilder, private _controlService: ControlServiceService) {}
+  constructor(private _formBuilder: FormBuilder, private _controlService: ControlServiceService) { }
 
   ngOnInit() {
-    this._controlService.getCountries().subscribe(data=>{
+    this._controlService.getCountries().subscribe(data => {
       console.log(data);
       this.stateGroups = data
     });
@@ -44,30 +44,30 @@ export class ArtistsearchComponent implements OnInit {
         startWith(''),
         map(value => this._filterGroup(value))
       );
-      this.addEnterKey();
+    this.addEnterKey();
   }
 
   private _filterGroup(value: string): StateGroup[] {
     if (value) {
       return this.stateGroups
-        .map(group => ({letter: group.letter, name: _filter(group.name, value)}))
+        .map(group => ({ letter: group.letter, name: _filter(group.name, value) }))
         .filter(group => group.name.length > 0);
     }
 
     return this.stateGroups;
   }
-  search(){
-   this.searchClicked.emit(this.stateForm.get('country').value);
- 
+  search() {
+    this.searchClicked.emit(this.stateForm.get('country').value);
+
   }
-  addEnterKey(){
+  addEnterKey() {
     var input = document.getElementById("mycountry");
-    input.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
-     event.preventDefault();
-     document.getElementById("mycountry").click();
-  }
-});
+    input.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("mycountry").click();
+      }
+    });
   }
 
 }

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PageComponent } from '../Components/page/page.component';
 import { MaterialModule } from './material.module';
 import { ArtistlistComponent } from '../Components/artistlist/artistlist.component';
@@ -37,13 +37,13 @@ import { InterceptorService } from './interceptor.service';
     MaterialModule
   ],
   providers: [
-              {
-                provide:HTTP_INTERCEPTORS,
-                useClass:InterceptorService,
-                multi: true
-              },
-              ControlServiceService,
-              ApiCallService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    },
+    ControlServiceService,
+    ApiCallService,
   ],
   bootstrap: [AppComponent]
 })
