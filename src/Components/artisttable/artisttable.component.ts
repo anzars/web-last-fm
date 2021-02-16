@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { PopupComponent } from 'src/Components/popup/popup.component';
 import { ControlServiceService } from 'src/app/services/control-service.service';
 import { artist } from 'src/Models/artist-model';
 import { toptracks } from 'src/Models/toptracks-model';
@@ -19,6 +20,7 @@ import { ToptracksComponent } from '../toptracks/toptracks.component';
 export class ArtisttableComponent implements OnInit {
   _country : string;
   show:boolean = false;
+  
   constructor(private _controlService: ControlServiceService,private dialog:MatDialog) { 
   
    
@@ -50,6 +52,7 @@ export class ArtisttableComponent implements OnInit {
   }
   populatetable(){
     this.show =true;
+    
     this._controlService.getArtists(this._country).subscribe(data=>{
       console.log(data);
       setTimeout(()=>{
@@ -58,6 +61,13 @@ export class ArtisttableComponent implements OnInit {
     this.dataSource = new MatTableDataSource(data);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    },
+    (error)=>{
+      this.show=false;
+      this.dialog.open(PopupComponent);
+      setTimeout(()=>{
+        this.dialog.closeAll();
+      },3000);
     });
   }
 

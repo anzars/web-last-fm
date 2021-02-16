@@ -16,6 +16,7 @@ import { CardsComponent } from '../Components/cards/cards.component';
 import { ControlServiceService } from './services/control-service.service';
 import { ApiCallService } from './services/api-call.service';
 import { InterceptorService } from './interceptor.service';
+import { PopupComponent } from '../Components/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { InterceptorService } from './interceptor.service';
     ArtisttableComponent,
     ArtistsearchComponent,
     ToptracksComponent,
-    CardsComponent
+    CardsComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
